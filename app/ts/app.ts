@@ -25,3 +25,4 @@ console.log(`Lista de clientes:\n${clientes.listar()}`);
 console.log(clientes.pesquisar('223.456.789-11'));
 console.log(clientes.remover('123.456.789-11'));
 console.log(`Lista de clientes:\n${clientes.listar()}`);
+

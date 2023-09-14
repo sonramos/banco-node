@@ -2,6 +2,7 @@ class Clientes {
     public clientes:Array<Cliente>;
     constructor(){
         this.clientes = Array();
+        
     }
 
     inserir(cliente: Cliente) {
