@@ -29,12 +29,6 @@ class ClienteController {
         this.inserirClienteNoHTML(novoCliente);
     }
 
-    // inserirClienteManual(novoCliente: Cliente){
-    //     this.clientes.inserir(novoCliente);
-    //     this.inserirClienteNoHTML(novoCliente);
-    //     console.log('Inserido com sucesso');
-    // }
-
     listar() {
         return this.clientes.listar().forEach(cliente => this.inserirClienteNoHTML(cliente));
     }
@@ -54,6 +48,11 @@ class ClienteController {
         elementoP.appendChild(botaoApagar);
         document.body.appendChild(elementoP);
     }
+    // inserirClienteManual(novoCliente: Cliente){
+    //     this.clientes.inserir(novoCliente);
+    //     this.inserirClienteNoHTML(novoCliente);
+    //     console.log('Inserido com sucesso');
+    // }
 }
 
 

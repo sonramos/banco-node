@@ -18,11 +18,6 @@ class ClienteController {
         this.contas.inserir(contaCliente);
         this.inserirClienteNoHTML(novoCliente);
     }
-    // inserirClienteManual(novoCliente: Cliente){
-    //     this.clientes.inserir(novoCliente);
-    //     this.inserirClienteNoHTML(novoCliente);
-    //     console.log('Inserido com sucesso');
-    // }
     listar() {
         return this.clientes.listar().forEach(cliente => this.inserirClienteNoHTML(cliente));
     }
