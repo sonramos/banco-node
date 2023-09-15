@@ -1,51 +1,59 @@
-// class ClienteController {
+class ClienteController {
 
-//     private inputNumero: HTMLInputElement;
-//     private inputSaldo: HTMLInputElement;
+    private inputNome: HTMLInputElement;
+    private inputCPF: HTMLInputElement;
+    private inputNumeroConta: HTMLInputElement;
 
-//     private contas: Contas;
+    private clientes: Clientes;
+    private contas: Contas;
 
-//     constructor() {
-//         this.inputNumero =
-//             <HTMLInputElement>document.querySelector("#conta")
-//         this.inputSaldo =
-//             <HTMLInputElement>document.querySelector("#saldo");
-//         this.contas = new Contas();
-//     }
+    constructor() {
+        this.inputNome = <HTMLInputElement>document.querySelector("#nome");
+        this.inputCPF = <HTMLInputElement>document.querySelector("#cpf");
+        this.inputNumeroConta = <HTMLInputElement>document.querySelector("#numero-conta");
 
-//     inserir(evento: Event) {
-//         evento.preventDefault();
-//         let novaConta = new Conta(this.inputNumero.value,
-//             parseFloat(this.inputSaldo.value));
+        this.clientes = new Clientes();
+        this.contas = new Contas();
+    }
 
-//         this.contas.inserir(novaConta);
-//         this.inserirContaNoHTML(novaConta);
-//     }
+    inserir(evento: Event) {
+        evento.preventDefault();
+        let novoCliente: Cliente;
+        let contaCliente = this.contas.pesquisar(this.inputNumeroConta.value);
+        if (contaCliente === undefined) {
+            contaCliente = new Conta(this.inputNumeroConta.value);
+        }
+        novoCliente = new Cliente(this.inputNome.value, this.inputCPF.value, contaCliente);
+        this.clientes.inserir(novoCliente);
+        this.contas.inserir(contaCliente);
+        this.inserirClienteNoHTML(novoCliente);
+    }
 
-//     listar() {
-//         this.contas.listar().forEach(
-//             conta => {
-//                 this.inserirContaNoHTML(conta);
-//             }
-//         );
-//     }
+    // inserirClienteManual(novoCliente: Cliente){
+    //     this.clientes.inserir(novoCliente);
+    //     this.inserirClienteNoHTML(novoCliente);
+    //     console.log('Inserido com sucesso');
+    // }
 
-//     inserirContaNoHTML(conta: Conta) {
-//         const elementoP = document.createElement('p');
-//         elementoP.textContent = conta.toString();
-//         const botaoApagar = document.createElement('button');
-//         botaoApagar.textContent = 'X';
-//         botaoApagar.addEventListener('click',
-//             (event) => {
-//                 console.log('removendo conta ' + conta.toString());
-//                 this.contas.remover(conta.numero);
-//                 (<Element>event.target).parentElement.remove();
-//             }
-//             );
-//         elementoP.appendChild(botaoApagar);
-//         document.body.appendChild(elementoP);
-//     }
+    listar() {
+        return this.clientes.listar().forEach(cliente => this.inserirClienteNoHTML(cliente));
+    }
 
+    inserirClienteNoHTML(cliente: Cliente){
+        const elementoP = document.createElement('p');
+        elementoP.textContent = cliente.toString();
+        const botaoApagar = document.createElement('button');
+        botaoApagar.textContent = 'X';
+        botaoApagar.addEventListener('click',
+            (event) => {
+                console.log('removendo cliente ' + cliente.toString());
+                this.contas.remover(cliente.cpf);
+                (<Element>event.target).parentElement.remove();
+            }
+        );
+        elementoP.appendChild(botaoApagar);
+        document.body.appendChild(elementoP);
+    }
+}
 
-// }
 

@@ -3,7 +3,7 @@ class Cliente {
     private _cpf: string;
     private _conta: Conta;
 
-    constructor(nome:string, cpf:string, conta:Conta){
+    constructor(nome:string, cpf:string, conta: Conta){
         this._nome = nome;
         this._cpf = cpf;
         this._conta = conta;
@@ -22,5 +22,11 @@ class Cliente {
     }
     set conta(novaConta) {
         this._conta = novaConta;
+    }
+
+    toString(): string {
+        return `Nome: ${this._nome} 
+        - CPF: ${this._cpf}
+        - Conta: ${this._conta.toString()}`;
     }
 }

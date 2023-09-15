@@ -32,7 +32,6 @@ class Conta {
     }
 
     toString(): string {
-        return `Número: ${this._numero} 
-        - Saldo: ${this._saldo}`;
+        return `Número: ${this._numero} - Saldo: ${this._saldo}`;
     }
 }

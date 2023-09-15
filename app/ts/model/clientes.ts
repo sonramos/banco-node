@@ -1,8 +1,7 @@
 class Clientes {
     public clientes:Array<Cliente>;
     constructor(){
-        this.clientes = Array();
-        
+        this.clientes = new Array<Cliente>();
     }
 
     inserir(cliente: Cliente) {

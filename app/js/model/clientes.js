@@ -1,6 +1,6 @@
 class Clientes {
     constructor() {
-        this.clientes = Array();
+        this.clientes = new Array();
     }
     inserir(cliente) {
         this.clientes.push(cliente);
@@ -22,4 +22,3 @@ class Clientes {
         return this.clientes;
     }
 }
-

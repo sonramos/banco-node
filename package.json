@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gugawag/banco-node.git"
+    "url": "git+https://github.com/sonramos/banco-node.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gugawag/banco-node/issues"
+    "url": "https://github.com/sonramos/banco-node.git/issues"
   },
-  "homepage": "https://github.com/gugawag/banco-node#readme",
+  "homepage": "https://github.com/sonramos/banco-node.git",
   "dependencies": {
     "typescript": "^3.8.3"
   }
